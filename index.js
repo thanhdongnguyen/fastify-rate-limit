@@ -59,10 +59,14 @@ function rateLimitPlugin (fastify, opts, next) {
           .header('X-RateLimit-Limit', max)
           .header('X-RateLimit-Remaining', 0)
           .header('Retry-After', timeWindow)
-          .send({
-            statusCode: 429,
-            error: 'Too Many Requests',
-            message: `Rate limit exceeded, retry in ${after}`
+          .send(opts.response ? opts.response : {
+            error: {
+              code: 429,
+              message: 'Too Many Requests',
+              errors: [
+                `Rate limit exceeded, retry in ${after}`
+              ]
+            }
           })
       }
     }
