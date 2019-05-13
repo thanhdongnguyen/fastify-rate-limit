@@ -1,6 +1,6 @@
 {
-  "name": "fastify-rate-limit",
-  "version": "2.1.1",
+  "name": "fastify-rate-limit-custom",
+  "version": "2.1.2",
   "description": "A low overhead rate limiter for your routes",
   "main": "index.js",
   "scripts": {
@@ -15,7 +15,8 @@
   "keywords": [
     "fastify",
     "rate",
-    "limit"
+    "limit",
+    "dongnt"
   ],
   "author": "Tomas Della Vedova - @delvedor (http://delved.org)",
   "license": "MIT",

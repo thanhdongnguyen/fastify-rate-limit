@@ -77,5 +77,5 @@ function rateLimitPlugin (fastify, opts, next) {
 
 module.exports = fp(rateLimitPlugin, {
   fastify: '>=2.x',
-  name: 'fastify-rate-limit'
+  name: 'fastify-rate-limit-custom'
 })
