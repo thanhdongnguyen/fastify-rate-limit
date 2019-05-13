@@ -50,15 +50,15 @@ function rateLimitPlugin (fastify, opts, next) {
       if (err && skipOnError === false) return next(err)
 
       if (current <= max) {
-        res.header('X-RateLimit-Limit', max)
-        res.header('X-RateLimit-Remaining', max - current)
+        // res.header('X-RateLimit-Limit', max)
+        // res.header('X-RateLimit-Remaining', max - current)
         next()
       } else {
-        res.type('application/json').serializer(serializeError)
-        res.code(429)
-          .header('X-RateLimit-Limit', max)
-          .header('X-RateLimit-Remaining', 0)
-          .header('Retry-After', timeWindow)
+        // res.type('application/json').serializer(serializeError)
+        res.code(200)
+          // .header('X-RateLimit-Limit', max)
+          // .header('X-RateLimit-Remaining', 0)
+          // .header('Retry-After', timeWindow)
           .send(opts.response ? opts.response : {
             error: {
               code: 429,
